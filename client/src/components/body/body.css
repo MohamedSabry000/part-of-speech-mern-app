@@ -1,0 +1,51 @@
+#main-body {
+    margin-top: 4rem;
+}
+#main-body .main-body-container{
+    background: #192d40;
+    border: 5px solid #4d5866;
+    border-top: 0;
+    display: flex;
+    margin-bottom: 63px;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+}
+#main-body .body-wrapper .pagination-wrapper {
+    list-style-type: none;
+    display: flex;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    justify-content: center;
+    gap: 6px;
+}
+#main-body .body-wrapper .pagination-wrapper .previous a,
+#main-body .body-wrapper .pagination-wrapper .next a,
+#main-body .body-wrapper .pagination-wrapper .bullet {
+    background-color: #EFEFEF;
+    padding: 8px 13px;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    color: #000;
+    font-size: 13px;
+    font-weight: bold;
+    border-radius: 4px;
+    width: 37px;
+    height: 35px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#main-body .body-wrapper .pagination-wrapper .selected a {
+    background-color: #19a7d017;
+    border: 1px solid #01a4b68a;
+}
+
+#main-body .body-wrapper .pagination-wrapper .disabled a {
+    background-color: #ededed;
+    border: 1px solid #ccc;
+    color: #949494;
+    cursor: not-allowed;
+}

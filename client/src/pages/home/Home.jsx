@@ -3,6 +3,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { resetWords, setWords } from '../../redux/reducers/words';
 import { getWords } from '../../api';
+import Header from '../../components/header/Header';
+import Body from '../../components/body/Body';
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
@@ -12,10 +14,15 @@ export default function Home() {
     dispatch(resetWords());
     getWords().then(words => {
       dispatch(setWords(words));
+      setLoading(false);
     })
   }, []);
 
   return (
-    <div>Home</div>
+    loading ? <div>Loading...</div>
+    : <div id="home">
+      <Header />
+      <Body />
+    </div>
   )
 }

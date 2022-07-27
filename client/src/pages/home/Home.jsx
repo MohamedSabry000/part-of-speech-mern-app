@@ -12,8 +12,8 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(resetWords());
-    getWords().then(words => {
-      dispatch(setWords(words));
+    getWords().then(res => {
+      dispatch(setWords(res.data));
       setLoading(false);
     })
   }, []);

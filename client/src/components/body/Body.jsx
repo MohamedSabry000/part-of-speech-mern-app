@@ -9,9 +9,8 @@ import LinearProgressWithLabel from '../progress/Progress';
 
 export default function Body() {
   const [progress, setProgress] = useState(10);
-  const dispatch = useDispatch();
   const { currentWord } = useSelector(state => state.words);
-console.log(currentWord);
+
   return (
     <section id="main-body">
       <Box sx={{ width: '100%' }}>
@@ -27,7 +26,7 @@ console.log(currentWord);
                           <h3 className="word">{currentWord.word}</h3>
                         </Box>
                       </div>
-                      <ButtonsContainer />
+                      <ButtonsContainer word={currentWord} setProgress={setProgress} />
                     </section>
                 ) : (
                   <h3>sorry no data to show</h3>

@@ -30,6 +30,7 @@ export const wordsSlice = createSlice({
         state.currentWord = state.words[state.index];
         state.index += 1;
       } else {
+        state.finished = true;
         state.currentWord = {};
       }
     },

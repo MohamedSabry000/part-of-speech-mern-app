@@ -45,3 +45,26 @@ The REST API to the example app is described below.
       },
       ...
     ]
+
+### Request
+
+`GET /api/v1/rank/`
+
+    curl --location --request GET 'localhost:5050/api/v1/rank' \
+      --header 'Content-Type: application/json' \
+      --data-raw '{
+          "score": 80
+      }'
+### Response
+
+    HTTP/1.1 200 OK
+    Status: 200 OK
+    Content-Type: application/json; charset=utf-8
+    Connection: keep-alive
+    Keep-Alive: timeout=5
+
+    [
+      {
+        "rank": 80
+      }
+    ]

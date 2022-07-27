@@ -3,6 +3,7 @@ const morgan = require('morgan');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const wordsRouter = require('./routes/v1/words');
+const rankRouter = require('./routes/v1/rank');
 
 require('dotenv').config();
 const { PORT } = process.env;
@@ -15,6 +16,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use('/api/v1/words', wordsRouter);
+app.use('/api/v1/rank', rankRouter);
 
 app.all('*', (req, res) => {
   res.json({

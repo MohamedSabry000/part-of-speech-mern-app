@@ -1,7 +1,7 @@
 const express = require('express');
 const wordsRouter = express.Router();
 
-const { getAllWords } = require('../../controllers/v1/words');
+const { getRandomWords } = require('../../controllers/v1/words');
 
-wordsRouter.route('/').get(getAllWords)
+wordsRouter.route('/').get(getRandomWords)
 module.exports = wordsRouter;

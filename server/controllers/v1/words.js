@@ -25,7 +25,7 @@ const getRandomWords = ( words, number ) => {
 }
 
 module.exports = {
-  getAllWords: (req, res) => {
+  getRandomWords: (req, res) => {
     res.status(200).json( getRandomWords(data.wordList, 10) );
   }
 }

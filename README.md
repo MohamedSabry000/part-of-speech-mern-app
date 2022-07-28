@@ -21,7 +21,3 @@ All description about Server is exists in the README.md file of the server
 
 ### Client Side
 I user [react.js](https://reactjs.org/) as a javascript UI Library for creating the front end
-
-
-## References
-* Rank Progress Bar is forked from `amit08255` from his repo [circular-dashed-progress-react](https://github.com/amit08255/circular-dashed-progress-react)

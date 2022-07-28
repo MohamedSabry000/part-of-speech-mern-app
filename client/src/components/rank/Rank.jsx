@@ -1,8 +1,8 @@
 import { Box, Button, Container } from '@mui/material'
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { getRank } from '../../api';
-import { resetWords } from '../../redux/reducers/words';
+import { getRank, getWords } from '../../api';
+import { resetWords, setWords } from '../../redux/reducers/words';
 import CircularProgressBar from '../rank-progress/CircularProgressBar.tsx';
 
 import './rank.css';
@@ -14,10 +14,18 @@ export default function Rank() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    getRank().then(res => {
+    getRank(score).then(res => {
+      console.log(res.data);
       setRank(res.data.rank);
     });
   }, [score]);
+
+  const tryAgain = () => {
+    dispatch(resetWords());
+    getWords().then(res => {
+      dispatch(setWords(res.data));
+    })
+  }
 
   return (
     <section id="rank">
@@ -35,7 +43,7 @@ export default function Rank() {
                 />
               </section>
               <Box className="rank-box">
-                <Button variant="contained" color="primary" className="rank-button" onClick={() => {dispatch(resetWords())}}>
+                <Button variant="contained" color="primary" className="rank-button" onClick={tryAgain}>
                   Try again
                 </Button>
               </Box>

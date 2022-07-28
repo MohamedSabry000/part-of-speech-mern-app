@@ -3,5 +3,5 @@ const rankRouter = express.Router();
 
 const { getRank } = require('../../controllers/v1/rank');
 
-rankRouter.route('/').get(getRank)
+rankRouter.route('/').post(getRank)
 module.exports = rankRouter;

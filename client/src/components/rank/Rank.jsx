@@ -1,16 +1,22 @@
-import { Box, Container } from '@mui/material'
-import React, { useEffect } from 'react'
-import { useSelector } from 'react-redux';
+import { Box, Button, Container } from '@mui/material'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getRank } from '../../api';
+import { resetWords } from '../../redux/reducers/words';
 import CircularProgressBar from '../rank-progress/CircularProgressBar.tsx';
 
 import './rank.css';
 
 export default function Rank() {
-
+  const [rank, setRank] = useState(0);
   const { score } = useSelector(state => state.words);
 
-  useEffect(() => {
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    getRank().then(res => {
+      setRank(res.data.rank);
+    });
   }, [score]);
 
   return (
@@ -19,25 +25,20 @@ export default function Rank() {
           <Container className="main-body-container">
             <div className="container-default">
               <section className="rank-container">
-              <CircularProgressBar
-                  selectedValue={25}
-                  maxValue={50}
-                  textColor='#f00'
-                  activeStrokeColor='#cc6600'
-                  withGradient
-                  textSize={20}
-                  label="Incorrect"
-              />
-
-              <CircularProgressBar
-                  selectedValue={75}
-                  maxValue={100}
-                  radius={100}
-                  activeStrokeColor='#0f4fff'
-                  withGradient
-                  label="Correct"
-              />
+                <CircularProgressBar
+                    selectedValue={rank}
+                    maxValue={100}
+                    radius={100}
+                    activeStrokeColor='#0f4fff'
+                    withGradient
+                    label="Rank"
+                />
               </section>
+              <Box className="rank-box">
+                <Button variant="contained" color="primary" className="rank-button" onClick={() => {dispatch(resetWords())}}>
+                  Try again
+                </Button>
+              </Box>
             </div>
           </Container>
         </div>

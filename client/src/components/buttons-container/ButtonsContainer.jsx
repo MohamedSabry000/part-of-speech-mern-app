@@ -1,22 +1,32 @@
-import { Box, Grid, Typography } from "@mui/material";
-import React from "react";
-import { useRef } from "react";
+import { Box } from "@mui/material";
+import React, { useRef } from "react";
+import { toast } from 'react-toastify';
+
 import { useDispatch } from "react-redux";
 import { setCurrentWord, setScore } from "../../redux/reducers/words";
 import Buttons from "./Buttons";
 
 import './buttons-container.css';
 
-export default function ButtonsContainer({word, setProgress}) {
+export default function ButtonsContainer({word}) {
   const types1 = useRef(['Verb', 'Adverb']);
   const types2 = useRef(['Noun', 'Adjective']);
+
+  const notifyTrue = () => {
+    toast.success("Great!");
+  }
+  const notifyFalse = () => {
+    toast.error("Oh Noo!");
+  };
 
   const dispatch = useDispatch();
 
   const onButtonClick = (type) => {
-    setProgress(progress => progress + 10);
     if(word.pos.toLowerCase() === type.toLowerCase()) {
       dispatch(setScore())
+      notifyTrue();
+    }else {
+      notifyFalse();
     }
     dispatch(setCurrentWord())
   }

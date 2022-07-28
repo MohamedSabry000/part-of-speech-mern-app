@@ -1,15 +1,21 @@
 import React, { useState } from 'react'
 import { Box, Container, Grid, Typography } from "@mui/material";
-import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
 
 import './body.css'
 import ButtonsContainer from '../buttons-container/ButtonsContainer';
 import LinearProgressWithLabel from '../progress/Progress';
+import { useEffect } from 'react';
 
 export default function Body() {
   const [progress, setProgress] = useState(10);
   const { currentWord } = useSelector(state => state.words);
+
+  const { words, index } = useSelector(state => state.words);
+
+  useEffect(() => {
+    setProgress((index/words.length)*100);
+  }, [index, words]);
 
   return (
     <section id="main-body">
@@ -26,7 +32,7 @@ export default function Body() {
                           <h3 className="word">{currentWord.word}</h3>
                         </Box>
                       </div>
-                      <ButtonsContainer word={currentWord} setProgress={setProgress} />
+                      <ButtonsContainer word={currentWord} />
                     </section>
                 ) : (
                   <h3>sorry no data to show</h3>

@@ -18,7 +18,7 @@
         {
             "id": 4,
             "word": "commute",
-            "pos": "adjective"
+            "pos": "verb"
         },
         {
             "id": 5,
@@ -28,12 +28,12 @@
         {
             "id": 6,
             "word": "walk",
-            "pos": "noun"
+            "pos": "verb"
         },
         {
             "id": 7,
             "word": "fast",
-            "pos": "noun"
+            "pos": "adjective"
         },
         {
             "id": 8,
@@ -43,7 +43,7 @@
         {
             "id": 9,
             "word": "crowded",
-            "pos": "noun"
+            "pos": "adjective"
         },
         {
             "id": 10,
@@ -58,12 +58,12 @@
         {
             "id": 12,
             "word": "independent",
-            "pos": "noun"
+            "pos": "adjective"
         },
         {
             "id": 13,
             "word": "convenient",
-            "pos": "noun"
+            "pos": "adjective"
         },
         {
             "id": 14,
@@ -73,7 +73,7 @@
         {
             "id": 15,
             "word": "heavily",
-            "pos": "noun"
+            "pos": "adverb"
         }
     ],
     "scoresList": [

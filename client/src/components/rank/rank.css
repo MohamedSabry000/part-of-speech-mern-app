@@ -22,3 +22,12 @@
 #rank .rank-container svg{
   margin: 20px;
 }
+
+#rank .rank-button{
+  background: #051c2b;
+  border: 2px solid #bdb840;
+  font-size: 17px;
+  font-weight: bold;
+  padding: 5px 50px;
+  margin: 20px;
+}

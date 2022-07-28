@@ -42,7 +42,7 @@ export default function Rank() {
                     label="Rank"
                 />
               </section>
-              <Box className="rank-box">
+              <Box className="rank-box" style={{textAlign: "center"}}>
                 <Button variant="contained" color="primary" className="rank-button" onClick={tryAgain}>
                   Try again
                 </Button>
